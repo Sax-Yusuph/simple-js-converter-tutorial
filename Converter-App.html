@@ -70,8 +70,8 @@ input.addEventListener('input', (e)=>{
     let res = e.target.value;
     if (res.length > 0){
         output.style.display= 'block';
-        dollars.innerHTML = Math.round(res/360); 
-        euros.innerHTML = Math.round(res/400);
+        dollars.innerHTML =(res/360).toFixed(2); 
+        euros.innerHTML = (res/400).toFixed(2);
         pounds.innerHTML = 'i dont know yet. my formula hasnt been set'
     }else{
         output.style.display= 'none';
