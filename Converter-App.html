@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Comfortaa|Dosis|Fredoka+One|Gelasio|Kulim+Park|Lato|Poiret+One|Roboto|Roboto+Condensed|Varela+Round&display=swap" rel="stylesheet"> -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <title>Simple converter app</title>
+    <style>
+        body{
+            background-color: #293251;
+            color:  #293251;
+        }
+        
+        #output{
+            display: none;
+        }
+        
+    
+    </style>
+</head>
+<body>
+   <div class="container">
+       <div class="row">
+           <div class="col-lg-6 col-md-6 m-auto">
+               <div class="card bg-dark mt-4 border-0 text-white p-4 shadow-lg">
+                   <h2 class="mb-3 text-success font-weight-bold">Mini Converter</h2>
+                   <div class="form-group mb-5">
+                        <input type="number" class="form-control form-control-lg bg-light border-0" id="input" placeholder="enter in Naira (NGN)" autofocus>
+                   </div>
+                   
+                   <!-- conversion results -->
+                   <div  class="" id="output">
+                       <!-- dollars -->
+                       <div class="card-body bg-darkalpha rounded border-0 mb-2 text-white">
+                           <!-- <button class="delete"></button> -->
+                           <h3 class="font-weight-bold text-info">Dollars:</h3>
+                           <p class="is-size-5"> $ <span id="dollar"></span></p>
+                       </div>
+                       <!-- euros -->
+                       <div class="card-body bg-darkalpha rounded border-0 mb-2 text-white">
+                       <!-- <button class="delete"></button> -->
+                       <h3 class="font-weight-bold text-info">Euro:</h3>
+                           <p class="is-size-5"> E <span id="euro"></span> </p>
+                       </div>
+                       <!-- pounds -->
+                       <div class="card-body bg-darkalpha rounded border-0 mb-0 text-white">
+                           <!-- <button class="delete"></button> -->
+                           <h3 class="font-weight-bold text-info">Pounds:</h3>
+                               <p id="pound" class="is-size-6">E</p>
+                       </div>
+                   </div>
+               </div>
+            </div>
+
+        </div>
+   </div>
+
+   <script>
+    //    declare your variables
+    const input = document.getElementById('input');
+    const dollars = document.getElementById('dollar');
+    const euros = document.getElementById('euro');
+    const pounds = document.getElementById('pound');
+
+// add an event listener function to the button
+
+input.addEventListener('input', (e)=>{
+    let res = e.target.value;
+    if (res.length > 0){
+        output.style.display= 'block';
+        dollars.innerHTML = Math.round(res/360); 
+        euros.innerHTML = Math.round(res/400);
+        pounds.innerHTML = 'i dont know yet. my formula hasnt been set'
+    }else{
+        output.style.display= 'none';
+        dollars.innerHTML = '';
+        euros.innerHTML = '';
+        pounds.innerHTML ='';
+        // output.style.visibility='hidden';
+    }
+})
+
+
+   </script>
+    
+</body>
+</html>
